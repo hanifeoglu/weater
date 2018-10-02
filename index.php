@@ -64,7 +64,7 @@ $arrlength = count($arr);
 
             <p class="card-info"><?php echo gmdate("d/m/Y H:i", $resp->dt);?></p>
 
-                <?php echo $resp->name;?>
+
             <?php echo "</div>";?>
             <?php };?>
 
