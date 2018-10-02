@@ -52,7 +52,7 @@ $arrlength = count($arr);
             $resp =  callAPI($arr[$x]);
 
             ?>
-            <div class="card anim-flip" id=”header” onclick="location.href='http://weather.app/details.php?city=<?php echo $resp->id .'&city_name='. $resp->name;?>'" style=”cursor:pointer;”>
+            <div class="card anim-flip" id=”header” onclick="location.href='http://weather.app/details.php?city=<?php echo $resp->id .'&city_name='. $resp->name;?>'" ”>
             <?php echo  "<header>";?>
             <h1 class="card-header"><?php echo $resp->name;?></h1>
             <?php echo  "</header>";?>
