@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+html,
+body{
+    min-height: 100vh;
+}
+body{
+    color: rgb(200,200,200);
+    font-family: 'Titillium Web';
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    background-color: rgb(25,35,45);
+}
+::-moz-selection{
+    background-color: transparent;
+}
+::selection{
+    background-color: transparent;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+}
+
+.card-wrapper{
+    position: relative;
+    margin: auto;
+    overflow: visible;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+
+
+}
+
+
+
+.box-highlight{
+    padding: 8px 4px;
+    background-color: #3B444C;
+    background-color: rgba(255,255,255,.15);
+    text-shadow: 0 5px 5px rgb(25,35,45);
+}
+.card{
+    width: 200px;
+    padding: 16px;
+    margin-bottom: 60px;
+    text-align: center;
+    background-color: rgb(25,35,45);
+    box-sizing: border-box;
+    transition: all 500ms ease-out;
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+.card:hover{
+    box-shadow: 0 0 20px 10px rgb(5,15,25);
+    z-index: 2;
+}
+.card:hover:not(span){
+    color: #FFAC33;
+}
+.card-header{
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgb(200,200,200);
+    margin: 0;
+    text-transform: capitalize;
+}
+.card-temp{
+    margin: 5px 0 10px 0;
+    font-size: 4em;
+    color: white;
+    text-align: center !important;
+}
+.card-info{
+    padding-top: 8px;
+    border-top: 1px solid rgb(200,200,200);
+    margin: 10px 0 0 0;
+    font-size: 1.25em;
+
+
+
+}
+
+/*ANIMAÇÕES*/
+.anim-flip{
+    -webkit-animation-name: flip;
+            animation-name: flip;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+}
+.anim-flip-card-2{
+    -webkit-animation-delay: 166ms;
+            animation-delay: 166ms;
+}
+
+@-webkit-keyframes flip{
+    0%{
+        -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+        -webkit-filter: blur(10px);
+                filter: blur(10px);
+    }
+    100%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        -webkit-filter: blur(0);
+                filter: blur(0);
+    }
+}
+
+@keyframes flip{
+    0%{
+        -webkit-transform: rotateY(180deg);
+                transform: rotateY(180deg);
+        -webkit-filter: blur(10px);
+                filter: blur(10px);
+    }
+    100%{
+        -webkit-transform: rotateY(0deg);
+                transform: rotateY(0deg);
+        -webkit-filter: blur(0);
+                filter: blur(0);
+    }
+}
