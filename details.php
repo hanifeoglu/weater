@@ -3,7 +3,7 @@ date_default_timezone_set('Europe/Istanbul');
 $city_code = $_GET['city'];
 $city_name = $_GET['city_name'];
 include('weather.php');
-$weather = new Weather('salih');
+$weather = new Weather();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,7 @@ $weather = new Weather('salih');
             <p class="card-info">
                 <?php } ?>
                 <?php echo date("H:i", $mydata->dt); ?>
-                <?php echo round($mydata->main->temp - 273.15); ?>
+                <?php echo round($mydata->main->temp); ?>
                 <sup>o</sup>
                 <img src="http://openweathermap.org/img/w/<?php echo $mydata->weather[0]->icon ?>.png"
                      style="vertical-align:middle"/>

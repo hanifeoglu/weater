@@ -1,48 +1,35 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Volkan
- * Date: 5.10.2018
- * Time: 19:27
- */
+
 
 class Weather{
 
-    private $apiUrl = 'http://volkansengul.com/havadurumu/';
-    private $apiKey;
-    private $city;
+    private $apiUrl = 'http://api.openweathermap.org/data/2.5/forecast';
+    private $apiKey = '3e052d0ed5425b63f9d6734870bd7cb1';
 
-    public function __construct($apiKey)
-    {
-        $this->apiKey = md5($apiKey);
-
+    public function GetCurrentWeather($id){
+        return $this->CallApi('',[
+            'id' => $id,
+        ]) ;
     }
 
-    public function GetCurrentWeather($city){
+    public function GetDetailedWeather($city_code){
         return $this->CallApi('',[
-            'city' => $city,
-        ]);
-    }
-
-    public function GetDetailedWeather($city_id){
-        $this->apiUrl = $this->apiUrl.'detay.php';
-        return $this->CallApi('',[
-            'city_id' => $city_id,
+            'id' => $city_code,
         ]);
     }
 
     private function CallApi($method,$params){
-        $params['app_id'] = $this->apiKey;
         $params = http_build_query($params);
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => $this->apiUrl.'?'.$params
+            CURLOPT_URL => $this->apiUrl.'?'.$params.'&lang=tr&units=metric&appid='.$this->apiKey
         ));
         $resp = curl_exec($curl);
         $resp = json_decode($resp);
         curl_close($curl);
         return $resp;
+
     }
 
 
